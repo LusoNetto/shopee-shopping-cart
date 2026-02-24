@@ -13,5 +13,4 @@ async function removeItem(id) {
 }
 
 async function getTotal() {
-    return itens.reduce()
 }
