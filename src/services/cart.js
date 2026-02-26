@@ -1,23 +1,33 @@
-async function createCart(itens) {
-    return {itens}
-}
-
-async function addItem(cart, item) {
-    itens.push(item);
+async function addItem(userCart, item) {
+    userCart.push(item);
 }
 
 async function deleteItem(id) {
 
 }
 
-async function removeItem(id) {
+async function removeItem(userCart, name) {
+    return userCart.filter((item) => item.name != name);
+}
+
+async function getTotal(userCart) {
+    console.log(userCart.reduce((total, item) => {
+        return total + item.subtotal
+    }, 0));
+}
+
+async function showCart(userCart) {
+    console.log("Items:")
+    let itemNumber = 1
+    userCart.forEach(item => {
+        console.log(`--- item ${itemNumber++} ---`)
+        console.log(`Name: ${item.name}`)
+        console.log(`Price: R$ ${item.price}`)
+        console.log(`Quantity: ${item.quantity}`)
+
+        console.log("--------------")
+    });
 
 }
 
-async function getTotal(itens) {
-    return itens.reduce((total, item)=>{
-        total + item.subtotal()
-    }, 0);
-}
-
-export default {addItem, getTotal, removeItem};
+export { addItem, getTotal, removeItem, showCart };
