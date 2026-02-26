@@ -19,16 +19,18 @@ console.log("Shopee wish list total is:")
 cartService.getTotal(myWhishList);
 
 console.log(myCart);
-myCart = await cartService.removeItem(myCart, "Camera 30X");
-myCart = await cartService.removeItem(myCart, "Camera 20X");
+myCart = await cartService.deleteItem(myCart, "Camera 30X");
+myCart = await cartService.deleteItem(myCart, "Camera 20X");
 console.log(myCart);
 
 await cartService.addItem(myCart, item1);
-await cartService.addItem(myCart, item1);
-await cartService.addItem(myCart, item1);
-await cartService.addItem(myCart, item1);
-await cartService.addItem(myCart, item1);
 
+myCart = await cartService.removeItem(myCart, "Camera 20X");
+myCart = await cartService.removeItem(myCart, "Camera 20X");
+myCart = await cartService.removeItem(myCart, "Camera 20X");
+myCart = await cartService.removeItem(myCart, "Camera 20X");
+myCart = await cartService.removeItem(myCart, "Camera 20X");
+myCart = await cartService.removeItem(myCart, "Camera 20X");
 cartService.showCart(myCart);
 
 
